@@ -1,0 +1,31 @@
+body{
+    padding: 5%;
+    text-align: center;
+}
+.content {
+    
+    margin: 5%; 
+    text-align: center;
+}
+
+.container1, .container2 {
+  resize: auto;
+  overflow: auto;
+  float: left;
+  width: 25%;
+  height: 35px;
+  border: 1px solid black;
+}
+.container {
+    display: inline;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+  }
+  
+  .box {
+    border: 3px solid #666;
+    background-color: #ddd;
+    border-radius: .5em;
+    padding: 10px;
+    cursor: move;
+  }

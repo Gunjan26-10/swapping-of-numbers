@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Drag and Drop</h2>
+    <div class="row content">
+      <div
+        class="col-lg-6 container1"
+        ondrop="dropping(event)"
+        ondragover="allowDropping(event)"
+      >
+        <div class="container">
+          <p
+            draggable="true"
+            ondragstart="dragging(event)"
+            class="box"
+            id="drag1"
+          >
+            A
+          </p>
+          <p
+            draggable="true"
+            ondragstart="dragging(event)"
+            class="box"
+            id="drag2"
+          >
+            B
+          </p>
+          <p
+            draggable="true"
+            ondragstart="dragging(event)"
+            class="box"
+            id="drag3"
+          >
+            C
+          </p>
+        </div>
+      </div>
+      <div
+        class="col-lg-6 container2"
+        ondrop="dropping(event)"
+        ondragover="allowDropping(event)"
+      ></div>
+    </div>
+    <button type="submit" onClick="refreshPage()">Reset to Default</button>
+    <script>
+      function allowDropping(event) {
+        event.preventDefault();
+      }
+
+      function dragging(event) {
+        event.dataTransfer.setData("text", event.target.id);
+      }
+
+      function dropping(event) {
+        event.preventDefault();
+        var data = event.dataTransfer.getData("text");
+        event.target.appendChild(document.getElementById(data));
+      }
+
+      function refreshPage() {
+        window.location.reload();
+      }
+    </script>
+  </body>
+</html>
